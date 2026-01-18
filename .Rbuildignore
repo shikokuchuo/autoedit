@@ -1,10 +1,13 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^compile_commands\.json$
+^\.cache$
 ^\.github$
 ^\.claude$
 ^CLAUDE.md$
 ^README\.Rmd$
+^[.]?air[.]toml$
 ^\.vscode$
 ^_pkgdown\.yml$
 ^docs$
@@ -12,3 +15,4 @@
 ^doc$
 ^Meta$
 ^inst/build$
+^\.amrg$

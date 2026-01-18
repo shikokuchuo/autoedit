@@ -1,0 +1,5 @@
+url: http://shikokuchuo.net/autoedit/
+template:
+  package: tidytemplate
+  bootstrap: 5
+

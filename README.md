@@ -3,6 +3,7 @@
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/shikokuchuo/autoedit/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/shikokuchuo/autoedit/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 A real-time collaborative code editor widget for R and Shiny, built on [CodeMirror 6](https://codemirror.net/) and [Automerge](https://automerge.org/) CRDT.
@@ -53,7 +54,17 @@ onStop(function() server$stop())
 shinyApp(ui, shiny_server)
 ```
 
-Open in multiple browser windows to see real-time collaboration.
+Open in multiple browser windows for real-time collaboration.
+
+## Building the JavaScript Widget
+
+To rebuild the bundled JavaScript widget:
+
+``` bash
+cd inst/build
+npm install
+npm run build
+```
 
 ## Related Packages
 

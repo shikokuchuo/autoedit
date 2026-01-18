@@ -1,7 +1,7 @@
 Type: Package
 Package: autoedit
 Title: Collaborative Code Editor Widget for Automerge
-Version: 0.0.1
+Version: 0.0.1.9000
 Authors@R: c(
     person("Charlie", "Gao", , "charlie.gao@posit.co", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0750-061X")),
@@ -13,13 +13,14 @@ Description: A real-time collaborative code editor widget built on
     automerge-repo compatible sync server for seamless multi-user editing
     with automatic conflict resolution.
 License: MIT + file LICENSE
-URL: https://github.com/shikokuchuo/autoedit
+URL: https://github.com/shikokuchuo/autoedit, https://shikokuchuo.net/autoedit/, http://shikokuchuo.net/autoedit/
 BugReports: https://github.com/shikokuchuo/autoedit/issues
 Depends:
     R (>= 4.4)
 Imports:
     htmlwidgets
 Suggests:
+    automerge,
     autosync,
     shiny,
     testthat (>= 3.0.0)
@@ -29,3 +30,4 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Config/Needs/website: tidyverse/tidytemplate
