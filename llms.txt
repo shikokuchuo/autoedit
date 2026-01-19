@@ -4,6 +4,9 @@ A real-time collaborative code editor widget for R and Shiny, built on
 [CodeMirror 6](https://codemirror.net/) and
 [Automerge](https://automerge.org/) CRDT.
 
+[![Ask
+DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shikokuchuo/autoedit)
+
 ## Installation
 
 ``` r
