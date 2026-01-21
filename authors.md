@@ -14,12 +14,12 @@
 Source:
 [`DESCRIPTION`](https://github.com/shikokuchuo/autoedit/blob/main/DESCRIPTION)
 
-Gao C (2026). *autoedit: Collaborative Code Editor Widget for
+Gao C (2026). *autoedit: Collaborative Text Editing for Shiny with
 Automerge*. R package version 0.0.1.9000,
 <https://github.com/shikokuchuo/autoedit>.
 
     @Manual{,
-      title = {autoedit: Collaborative Code Editor Widget for Automerge},
+      title = {autoedit: Collaborative Text Editing for Shiny with Automerge},
       author = {Charlie Gao},
       year = {2026},
       note = {R package version 0.0.1.9000},

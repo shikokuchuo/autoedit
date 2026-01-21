@@ -1,9 +1,9 @@
-# autoedit: Collaborative Code Editor Widget for Automerge
+# autoedit: Collaborative Text Editing for Shiny with Automerge
 
-A real-time collaborative code editor widget built on CodeMirror 6 and
-Automerge CRDT. Connects via WebSocket to any automerge-repo compatible
-sync server for seamless multi-user editing with automatic conflict
-resolution.
+Real-time collaborative text editing for R and Shiny applications, built
+on 'Automerge' 'CRDT'. Provides a 'CodeMirror' 6 editor widget with
+WebSocket sync and a serverless Shiny module for multi-user editing with
+automatic conflict resolution.
 
 ## See also
 

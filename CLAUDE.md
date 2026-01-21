@@ -36,7 +36,7 @@ cd inst/build && npm install && npm run build
 - `R/editor.R` - Main widget functions:
   [`editor()`](http://shikokuchuo.net/autoedit/reference/editor.md),
   [`editor_output()`](http://shikokuchuo.net/autoedit/reference/editor-shiny.md),
-  [`render_editor()`](http://shikokuchuo.net/autoedit/reference/editor-shiny.md)
+  `render_editor()`
 - Uses htmlwidgets to bridge R and JavaScript
 
 ### JavaScript Widget

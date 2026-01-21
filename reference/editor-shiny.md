@@ -8,7 +8,7 @@ and interactive R Markdown documents.
 ``` r
 editor_output(outputId, width = "100%", height = "400px")
 
-render_editor(expr, env = parent.frame(), quoted = FALSE)
+editor_render(expr, env = parent.frame(), quoted = FALSE)
 ```
 
 ## Arguments
@@ -36,5 +36,5 @@ render_editor(expr, env = parent.frame(), quoted = FALSE)
 
 ## Value
 
-`editor_output()` returns a Shiny output element. `render_editor()`
+`editor_output()` returns a Shiny output element. `editor_render()`
 returns a Shiny render function.
