@@ -1,6 +1,6 @@
 Type: Package
 Package: autoedit
-Title: Collaborative Code Editor Widget for Automerge
+Title: Collaborative Text Editing for Shiny with Automerge
 Version: 0.0.1.9000
 Authors@R: c(
     person("Charlie", "Gao", , "charlie.gao@posit.co", role = c("aut", "cre"),
@@ -8,27 +8,28 @@ Authors@R: c(
     person("Posit Software, PBC", role = c("cph", "fnd"),
            comment = c(ROR = "03wc8by49"))
   )
-Description: A real-time collaborative code editor widget built on
-    CodeMirror 6 and Automerge CRDT. Connects via WebSocket to any
-    automerge-repo compatible sync server for seamless multi-user editing
-    with automatic conflict resolution.
+Description: Real-time collaborative text editing for R and Shiny
+    applications, built on 'Automerge' 'CRDT'. Provides a 'CodeMirror' 6
+    editor widget with WebSocket sync and a serverless Shiny module for
+    multi-user editing with automatic conflict resolution.
 License: MIT + file LICENSE
-URL: https://github.com/shikokuchuo/autoedit, https://shikokuchuo.net/autoedit/, http://shikokuchuo.net/autoedit/
+URL: https://github.com/shikokuchuo/autoedit,
+    https://shikokuchuo.net/autoedit/, http://shikokuchuo.net/autoedit/
 BugReports: https://github.com/shikokuchuo/autoedit/issues
 Depends:
     R (>= 4.4)
 Imports:
-    htmlwidgets
-Suggests:
     automerge,
+    htmlwidgets,
+    shiny
+Suggests:
     autosync,
-    shiny,
     testthat (>= 3.0.0)
 Remotes: 
     automerge=posit-dev/automerge-r,
     shikokuchuo/autosync
+Config/Needs/website: tidyverse/tidytemplate
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-Config/Needs/website: tidyverse/tidytemplate

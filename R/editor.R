@@ -66,7 +66,7 @@ editor <- function(server_url, doc_id, timeout = 10000,
 #' @param quoted Logical, whether `expr` is a quoted expression.
 #'
 #' @return `editor_output()` returns a Shiny output element.
-#'   `render_editor()` returns a Shiny render function.
+#'   `editor_render()` returns a Shiny render function.
 #'
 #' @name editor-shiny
 #'
@@ -78,7 +78,7 @@ editor_output <- function(outputId, width = "100%", height = "400px") {
 
 #' @rdname editor-shiny
 #' @export
-render_editor <- function(expr, env = parent.frame(), quoted = FALSE) {
+editor_render <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) expr <- substitute(expr)
   htmlwidgets::shinyRenderWidget(expr, editor_output, env, quoted = TRUE)
 }

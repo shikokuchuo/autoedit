@@ -79,21 +79,21 @@ test_that("editor_output() accepts custom dimensions", {
   expect_match(html, "600px")
 })
 
-test_that("render_editor() returns a render function", {
+test_that("editor_render() returns a render function", {
   skip_if_not_installed("shiny")
 
-  render_fn <- render_editor({
+  render_fn <- editor_render({
     editor("wss://sync.example.com", "test-doc-id")
   })
 
   expect_type(render_fn, "closure")
 })
 
-test_that("render_editor() handles quoted expressions", {
+test_that("editor_render() handles quoted expressions", {
   skip_if_not_installed("shiny")
 
   expr <- quote(editor("wss://sync.example.com", "test-doc-id"))
-  render_fn <- render_editor(expr, quoted = TRUE)
+  render_fn <- editor_render(expr, quoted = TRUE)
 
   expect_type(render_fn, "closure")
 })

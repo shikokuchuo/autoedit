@@ -3,12 +3,12 @@
 \name{editor-shiny}
 \alias{editor-shiny}
 \alias{editor_output}
-\alias{render_editor}
+\alias{editor_render}
 \title{Shiny bindings for editor}
 \usage{
 editor_output(outputId, width = "100\%", height = "400px")
 
-render_editor(expr, env = parent.frame(), quoted = FALSE)
+editor_render(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{outputId}{Output variable to read from.}
@@ -24,7 +24,7 @@ which will be coerced to a string and have "px" appended).}
 }
 \value{
 \code{editor_output()} returns a Shiny output element.
-\code{render_editor()} returns a Shiny render function.
+\code{editor_render()} returns a Shiny render function.
 }
 \description{
 Output and render functions for using editor within Shiny

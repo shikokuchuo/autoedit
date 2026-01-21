@@ -2,4 +2,6 @@
 
 export(editor)
 export(editor_output)
-export(render_editor)
+export(editor_render)
+export(textarea_server)
+export(textarea_ui)
