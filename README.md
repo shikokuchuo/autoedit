@@ -40,7 +40,6 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   text <- textarea_server("editor", initial_text = "Start typing...")
-  observe(print(text()))
 }
 
 shinyApp(ui, server)

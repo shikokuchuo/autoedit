@@ -40,8 +40,13 @@ get_master_state <- function(doc_id) {
 #'
 #' @family textarea
 #' @export
-textarea_ui <- function(id, label = NULL, width = "100%", height = "200px",
-                           placeholder = NULL) {
+textarea_ui <- function(
+  id,
+  label = NULL,
+  width = "100%",
+  height = "200px",
+  placeholder = NULL
+) {
   ns <- shiny::NS(id)
   shiny::textAreaInput(
     ns("text"),
@@ -86,10 +91,13 @@ textarea_ui <- function(id, label = NULL, width = "100%", height = "200px",
 #'
 #' @family textarea
 #' @export
-textarea_server <- function(id, doc_id = "default", initial_text = "",
-                               debounce_ms = 150) {
+textarea_server <- function(
+  id,
+  doc_id = "default",
+  initial_text = "",
+  debounce_ms = 150
+) {
   shiny::moduleServer(id, function(input, output, session) {
-
     master_state <- get_master_state(doc_id)
 
     # Initialize master with initial_text if it's empty and initial_text provided
@@ -99,7 +107,11 @@ textarea_server <- function(id, doc_id = "default", initial_text = "",
           automerge::am_get(master_state$doc, automerge::AM_ROOT, "text")
         )
         if (!nzchar(current)) {
-          text_obj <- automerge::am_get(master_state$doc, automerge::AM_ROOT, "text")
+          text_obj <- automerge::am_get(
+            master_state$doc,
+            automerge::AM_ROOT,
+            "text"
+          )
           automerge::am_text_splice(text_obj, 0L, 0L, initial_text)
           automerge::am_commit(master_state$doc, "initial content")
           master_state$version <- master_state$version + 1L
@@ -128,10 +140,16 @@ textarea_server <- function(id, doc_id = "default", initial_text = "",
         msg_to_master <- automerge::am_sync_encode(local_doc, sync_local)
         msg_to_local <- automerge::am_sync_encode(master_state$doc, sync_master)
 
-        if (is.null(msg_to_master) && is.null(msg_to_local)) break
+        if (is.null(msg_to_master) && is.null(msg_to_local)) {
+          break
+        }
 
         if (!is.null(msg_to_master)) {
-          automerge::am_sync_decode(master_state$doc, sync_master, msg_to_master)
+          automerge::am_sync_decode(
+            master_state$doc,
+            sync_master,
+            msg_to_master
+          )
         }
         if (!is.null(msg_to_local)) {
           automerge::am_sync_decode(local_doc, sync_local, msg_to_local)
@@ -161,9 +179,12 @@ textarea_server <- function(id, doc_id = "default", initial_text = "",
     )
 
     # Update textarea with initial content after flush
-    session$onFlushed(function() {
-      shiny::updateTextAreaInput(session, "text", value = initial_text_value)
-    }, once = TRUE)
+    session$onFlushed(
+      function() {
+        shiny::updateTextAreaInput(session, "text", value = initial_text_value)
+      },
+      once = TRUE
+    )
 
     # Debounced text input
     text_debounced <- shiny::debounce(shiny::reactive(input$text), debounce_ms)
@@ -182,61 +203,77 @@ textarea_server <- function(id, doc_id = "default", initial_text = "",
     }
 
     # Handle local text changes
-    shiny::observeEvent(text_debounced(), {
-      new_text <- text_debounced()
+    shiny::observeEvent(
+      text_debounced(),
+      {
+        new_text <- text_debounced()
 
-      if (is.null(new_text) || identical(new_text, local$last_text)) {
-        return()
-      }
-
-      tryCatch({
-        # Commit changes to local doc using splice diff
-        text_obj <- automerge::am_get(local_doc, automerge::AM_ROOT, "text")
-        old_text <- automerge::am_text_content(text_obj)
-        automerge::am_text_update(text_obj, old_text, new_text)
-        automerge::am_commit(local_doc, paste("Edit at", format(Sys.time(), "%H:%M:%S")))
-        local$last_text <- new_text
-
-        # Sync with master
-        pulled <- sync_with_master()
-
-        # If we pulled changes, update the textarea
-        if (pulled) {
-          synced_text <- automerge::am_text_content(
-            automerge::am_get(local_doc, automerge::AM_ROOT, "text")
-          )
-          if (!identical(synced_text, new_text)) {
-            shiny::updateTextAreaInput(session, "text", value = synced_text)
-            local$last_text <- synced_text
-          }
+        if (is.null(new_text) || identical(new_text, local$last_text)) {
+          return()
         }
-      }, error = function(e) {
-        shiny::showNotification(
-          paste("Sync error:", conditionMessage(e)),
-          type = "error"
+
+        tryCatch(
+          {
+            # Commit changes to local doc using splice diff
+            text_obj <- automerge::am_get(local_doc, automerge::AM_ROOT, "text")
+            old_text <- automerge::am_text_content(text_obj)
+            automerge::am_text_update(text_obj, old_text, new_text)
+            automerge::am_commit(
+              local_doc,
+              paste("Edit at", format(Sys.time(), "%H:%M:%S"))
+            )
+            local$last_text <- new_text
+
+            # Sync with master
+            pulled <- sync_with_master()
+
+            # If we pulled changes, update the textarea
+            if (pulled) {
+              synced_text <- automerge::am_text_content(
+                automerge::am_get(local_doc, automerge::AM_ROOT, "text")
+              )
+              if (!identical(synced_text, new_text)) {
+                shiny::updateTextAreaInput(session, "text", value = synced_text)
+                local$last_text <- synced_text
+              }
+            }
+          },
+          error = function(e) {
+            shiny::showNotification(
+              paste("Sync error:", conditionMessage(e)),
+              type = "error"
+            )
+          }
         )
-      })
-    }, ignoreInit = TRUE)
+      },
+      ignoreInit = TRUE
+    )
 
     # React to master version changes (from other sessions)
-    shiny::observeEvent(master_state$version, {
-      current_input <- shiny::isolate(input$text)
-      has_pending <- !is.null(current_input) &&
-        !identical(current_input, local$last_text)
+    shiny::observeEvent(
+      master_state$version,
+      {
+        current_input <- shiny::isolate(input$text)
+        has_pending <- !is.null(current_input) &&
+          !identical(current_input, local$last_text)
 
-      if (has_pending) return()
-
-      pulled <- sync_with_master()
-      if (pulled) {
-        new_text <- automerge::am_text_content(
-          automerge::am_get(local_doc, automerge::AM_ROOT, "text")
-        )
-        if (!identical(new_text, local$last_text)) {
-          shiny::updateTextAreaInput(session, "text", value = new_text)
-          local$last_text <- new_text
+        if (has_pending) {
+          return()
         }
-      }
-    }, ignoreInit = TRUE)
+
+        pulled <- sync_with_master()
+        if (pulled) {
+          new_text <- automerge::am_text_content(
+            automerge::am_get(local_doc, automerge::AM_ROOT, "text")
+          )
+          if (!identical(new_text, local$last_text)) {
+            shiny::updateTextAreaInput(session, "text", value = new_text)
+            local$last_text <- new_text
+          }
+        }
+      },
+      ignoreInit = TRUE
+    )
 
     # Return reactive with current text
     shiny::reactive(local$last_text)
