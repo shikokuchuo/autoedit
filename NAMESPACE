@@ -14,11 +14,17 @@ export(replay_ui)
 export(sync_inputs)
 export(textarea_server)
 export(textarea_ui)
-importFrom(automerge,am_keys)
-importFrom(automerge,am_text_content)
-importFrom(automerge,am_text_update)
-importFrom(autosync,sync_client)
-importFrom(autosync,sync_token)
-importFrom(later,later)
-importFrom(later,run_now)
+importFrom(automerge,
+  am_keys,
+  am_text_content,
+  am_text_update
+)
+importFrom(autosync,
+  sync_client,
+  sync_token
+)
+importFrom(later,
+  later,
+  run_now
+)
 importFrom(tools,file_ext)
