@@ -49,7 +49,7 @@ one-line summary."></head><body>
 
     <div class="ref-description section level2">
     <p>Opens the text object at <code>at</code> within an <code>autosync_doc</code> handle (from
-<code><a href="http://shikokuchuo.net/autosync/reference/sync_client.html" class="external-link">autosync::sync_client()</a></code>'s <code>$open_doc()</code>, or <code><a href="project_open.html">project_open()</a></code>'s <code>$open()</code>)
+<code><a href="https://posit-dev.github.io/autosync/reference/sync_client.html" class="external-link">autosync::sync_client()</a></code>'s <code>$open_doc()</code>, or <code><a href="project_open.html">project_open()</a></code>'s <code>$open()</code>)
 in a Shiny <code><a href="https://rstudio.github.io/bslib/reference/input_code_editor.html" class="external-link">bslib::input_code_editor()</a></code> that stays in sync with the live
 document in both directions, blocks until the editor closes, then prints a
 one-line summary.</p>
@@ -66,7 +66,7 @@ one-line summary.</p>
 
 <dl><dt id="arg-doc">doc<a class="anchor" aria-label="anchor" href="#arg-doc"></a></dt>
 <dd><p>An <code>autosync_doc</code> handle backed by an active connection (from
-<code><a href="http://shikokuchuo.net/autosync/reference/sync_client.html" class="external-link">autosync::sync_client()</a></code>'s <code>$open_doc()</code> or <code><a href="project_open.html">project_open()</a></code>'s <code>$open()</code>).</p></dd>
+<code><a href="https://posit-dev.github.io/autosync/reference/sync_client.html" class="external-link">autosync::sync_client()</a></code>'s <code>$open_doc()</code> or <code><a href="project_open.html">project_open()</a></code>'s <code>$open()</code>).</p></dd>
 
 
 <dt id="arg-at">at<a class="anchor" aria-label="anchor" href="#arg-at"></a></dt>
@@ -102,7 +102,7 @@ original's trailing-newline state is preserved.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive()</span></span></span>
-<span class="r-in"><span><span class="va">conn</span> <span class="op">&lt;-</span> <span class="fu">autosync</span><span class="fu">::</span><span class="fu"><a href="http://shikokuchuo.net/autosync/reference/sync_client.html" class="external-link">sync_client</a></span><span class="op">(</span><span class="st">"wss://quarto-hub.com/ws"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">conn</span> <span class="op">&lt;-</span> <span class="fu">autosync</span><span class="fu">::</span><span class="fu"><a href="https://posit-dev.github.io/autosync/reference/sync_client.html" class="external-link">sync_client</a></span><span class="op">(</span><span class="st">"wss://quarto-hub.com/ws"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">doc</span> <span class="op">&lt;-</span> <span class="va">conn</span><span class="op">$</span><span class="fu">open_doc</span><span class="op">(</span><span class="st">"4F63WJPDzbHkkfKa66h1Qrr1sC5U"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">project_edit</span><span class="op">(</span><span class="va">doc</span>, at <span class="op">=</span> <span class="st">"text"</span>, ext <span class="op">=</span> <span class="st">".md"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">conn</span><span class="op">$</span><span class="fu">close</span><span class="op">(</span><span class="op">)</span></span></span>
@@ -120,7 +120,7 @@ original's trailing-newline state is preserved.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
   </div></footer></body></html>

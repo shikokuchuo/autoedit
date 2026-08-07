@@ -87,7 +87,7 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/shikokuchuo/shinysync" class="external-link">shinysync</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shikokuchuo.net/autosync/" class="external-link">autosync</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://posit-dev.github.io/autosync/" class="external-link">autosync</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/posit-dev/automerge-r" class="external-link">automerge</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Room-specific initial content templates</span></span>
@@ -99,14 +99,14 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create and start the sync server (once, at app startup)</span></span>
-<span><span class="va">sync_server</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://shikokuchuo.net/autosync/reference/sync_server.html" class="external-link">sync_server</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">sync_server</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://posit-dev.github.io/autosync/reference/sync_server.html" class="external-link">sync_server</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">sync_server</span><span class="op">$</span><span class="fu">start</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create a document for each room with initial content</span></span>
 <span><span class="va">doc_ids</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">room</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">room_templates</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">doc_ids</span><span class="op">[[</span><span class="va">room</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://shikokuchuo.net/autosync/reference/create_document.html" class="external-link">create_document</a></span><span class="op">(</span><span class="va">sync_server</span><span class="op">)</span></span>
-<span>  <span class="va">doc</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://shikokuchuo.net/autosync/reference/get_document.html" class="external-link">get_document</a></span><span class="op">(</span><span class="va">sync_server</span>, <span class="va">doc_ids</span><span class="op">[[</span><span class="va">room</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">doc_ids</span><span class="op">[[</span><span class="va">room</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://posit-dev.github.io/autosync/reference/create_document.html" class="external-link">create_document</a></span><span class="op">(</span><span class="va">sync_server</span><span class="op">)</span></span>
+<span>  <span class="va">doc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://posit-dev.github.io/autosync/reference/get_document.html" class="external-link">get_document</a></span><span class="op">(</span><span class="va">sync_server</span>, <span class="va">doc_ids</span><span class="op">[[</span><span class="va">room</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://posit-dev.github.io/automerge-r/reference/am_put.html" class="external-link">am_put</a></span><span class="op">(</span><span class="va">doc</span>, <span class="va">AM_ROOT</span>, <span class="st">"text"</span>, <span class="fu"><a href="https://posit-dev.github.io/automerge-r/reference/am_text.html" class="external-link">am_text</a></span><span class="op">(</span><span class="va">room_templates</span><span class="op">[[</span><span class="va">room</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://posit-dev.github.io/automerge-r/reference/am_commit.html" class="external-link">am_commit</a></span><span class="op">(</span><span class="va">doc</span>, <span class="st">"init"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -315,7 +315,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
   </div></footer>

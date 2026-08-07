@@ -31,7 +31,7 @@ project_app(
 - token:
 
   (optional) A JWT obtained earlier from
-  [`autosync::sync_token()`](http://shikokuchuo.net/autosync/reference/sync_token.md).
+  [`autosync::sync_token()`](https://posit-dev.github.io/autosync/reference/sync_token.html).
   When supplied, the app starts already signed in; you can still
   re-authenticate from the form. Default `NULL` (sign in from the form,
   or connect with no token).
@@ -64,11 +64,11 @@ Invisibly `NULL`, when the app window is closed.
 - **Connect** – enter a sync-server URL and a project document ID, and
   optionally authenticate. The **Authenticate** button runs the same
   OIDC browser flow as
-  [`autosync::sync_token()`](http://shikokuchuo.net/autosync/reference/sync_token.md);
+  [`autosync::sync_token()`](https://posit-dev.github.io/autosync/reference/sync_token.html);
   client ID, secret, and issuer can be set under **Advanced** (prefilled
   from the `OIDC_CLIENT_ID`, `OIDC_CLIENT_SECRET`, and `OIDC_ISSUER`
   environment variables). Passing a `token` obtained earlier from
-  [`autosync::sync_token()`](http://shikokuchuo.net/autosync/reference/sync_token.md)
+  [`autosync::sync_token()`](https://posit-dev.github.io/autosync/reference/sync_token.html)
   starts the app already signed in, skipping that step. Leaving the
   sign-in untouched connects without a token, for open servers.
 

@@ -1,11 +1,11 @@
 pandoc: 3.8.3
-pkgdown: 2.2.0
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   collaborative-kanban: collaborative-kanban.html
   collaborative-notes: collaborative-notes.html
   collaborative-shiny: collaborative-shiny.html
-last_built: 2026-06-23T16:46Z
+last_built: 2026-08-07T16:20Z
 urls:
   reference: http://shikokuchuo.net/shinysync/reference
   article: http://shikokuchuo.net/shinysync/articles

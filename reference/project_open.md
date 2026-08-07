@@ -61,7 +61,7 @@ following fields and methods:
 - `conn`:
 
   The underlying
-  [`sync_client()`](http://shikokuchuo.net/autosync/reference/sync_client.md)
+  [`sync_client()`](https://posit-dev.github.io/autosync/reference/sync_client.html)
   connection.
 
 - `paths()`:

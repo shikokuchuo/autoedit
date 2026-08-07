@@ -73,7 +73,7 @@ Default <code>""</code>.</p></dd>
 
 
 <dt id="arg-token">token<a class="anchor" aria-label="anchor" href="#arg-token"></a></dt>
-<dd><p>(optional) A JWT obtained earlier from <code><a href="http://shikokuchuo.net/autosync/reference/sync_token.html" class="external-link">autosync::sync_token()</a></code>.
+<dd><p>(optional) A JWT obtained earlier from <code><a href="https://posit-dev.github.io/autosync/reference/sync_token.html" class="external-link">autosync::sync_token()</a></code>.
 When supplied, the app starts already signed in; you can still
 re-authenticate from the form. Default <code>NULL</code> (sign in from the form, or
 connect with no token).</p></dd>
@@ -108,10 +108,10 @@ through to the live editor. Default 300.</p></dd>
 
 <ul><li><p><strong>Connect</strong> – enter a sync-server URL and a project document ID, and
 optionally authenticate. The <strong>Authenticate</strong> button runs the same OIDC
-browser flow as <code><a href="http://shikokuchuo.net/autosync/reference/sync_token.html" class="external-link">autosync::sync_token()</a></code>; client ID, secret, and issuer can
+browser flow as <code><a href="https://posit-dev.github.io/autosync/reference/sync_token.html" class="external-link">autosync::sync_token()</a></code>; client ID, secret, and issuer can
 be set under <strong>Advanced</strong> (prefilled from the <code>OIDC_CLIENT_ID</code>,
 <code>OIDC_CLIENT_SECRET</code>, and <code>OIDC_ISSUER</code> environment variables). Passing a
-<code>token</code> obtained earlier from <code><a href="http://shikokuchuo.net/autosync/reference/sync_token.html" class="external-link">autosync::sync_token()</a></code> starts the app
+<code>token</code> obtained earlier from <code><a href="https://posit-dev.github.io/autosync/reference/sync_token.html" class="external-link">autosync::sync_token()</a></code> starts the app
 already signed in, skipping that step. Leaving the sign-in untouched
 connects without a token, for open servers.</p></li>
 <li><p><strong>Browse &amp; edit</strong> – once connected, the project's file tree appears in a
@@ -134,7 +134,7 @@ reuses it for every file opened during the session.</p>
 <span class="r-in"><span><span class="fu">project_app</span><span class="op">(</span><span class="st">"wss://quarto-hub.com/ws"</span>, proj_id <span class="op">=</span> <span class="st">"4F63WJPDzbHkkfKa66h1Qrr1sC5U"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Reuse a token obtained earlier, so the app starts signed in:</span></span></span>
-<span class="r-in"><span><span class="va">token</span> <span class="op">&lt;-</span> <span class="fu">autosync</span><span class="fu">::</span><span class="fu"><a href="http://shikokuchuo.net/autosync/reference/sync_token.html" class="external-link">sync_token</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">token</span> <span class="op">&lt;-</span> <span class="fu">autosync</span><span class="fu">::</span><span class="fu"><a href="https://posit-dev.github.io/autosync/reference/sync_token.html" class="external-link">sync_token</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">project_app</span><span class="op">(</span><span class="st">"wss://quarto-hub.com/ws"</span>, proj_id <span class="op">=</span> <span class="st">"4F63WJPD..."</span>, token <span class="op">=</span> <span class="va">token</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
@@ -150,7 +150,7 @@ reuses it for every file opened during the session.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
   </div></footer></body></html>

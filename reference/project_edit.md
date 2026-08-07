@@ -1,7 +1,7 @@
 # Edit a synced document live in a Shiny code editor
 
 Opens the text object at `at` within an `autosync_doc` handle (from
-[`autosync::sync_client()`](http://shikokuchuo.net/autosync/reference/sync_client.md)'s
+[`autosync::sync_client()`](https://posit-dev.github.io/autosync/reference/sync_client.html)'s
 `$open_doc()`, or
 [`project_open()`](http://shikokuchuo.net/shinysync/reference/project_open.md)'s
 `$open()`) in a Shiny
@@ -20,7 +20,7 @@ project_edit(doc, at = "text", ext = NULL, debounce = 300L)
 - doc:
 
   An `autosync_doc` handle backed by an active connection (from
-  [`autosync::sync_client()`](http://shikokuchuo.net/autosync/reference/sync_client.md)'s
+  [`autosync::sync_client()`](https://posit-dev.github.io/autosync/reference/sync_client.html)'s
   `$open_doc()` or
   [`project_open()`](http://shikokuchuo.net/shinysync/reference/project_open.md)'s
   `$open()`).
